@@ -371,8 +371,8 @@ export const PRICE_CATEGORIES: PriceCategory[] = [
           'Durasi pengerjaan: 1 - 1.5 hours / session',
         ],
         addOns: [
-          { name: 'Clean hijab-do (by MUA)', price: '+50k' },
-          { name: 'Hijabdo Drappery, etc. (by stylish)', price: '+150k' },
+          { name: 'Clean hijab-do (by MUA)', price: '+100k' },
+          { name: 'Hijabdo Drappery, etc. (by stylish)', price: '+200k' },
           { name: 'Hairdo (by hair stylish)', price: '200k - 250k' },
           { name: 'Retouch & stand by MUA only', price: '300k / 4 hours' },
           { name: 'Retouch & stand by MUA + hairdo', price: '600k' },
