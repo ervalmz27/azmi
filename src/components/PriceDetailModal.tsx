@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Check, AlertCircle, MessageCircle } from 'lucide-react';
+import { X, Check, AlertCircle, MessageCircle, Clock, Sparkles, PlusCircle } from 'lucide-react';
 import type { PriceCategory } from '../types';
 import { PROFILE_INFO } from '../data/makeupData';
 
@@ -83,13 +83,25 @@ export const PriceDetailModal: React.FC<PriceDetailModalProps> = ({ category, on
                 {pkg.badge && <span className="pkg-badge">{pkg.badge}</span>}
               </div>
 
-              <div className="pkg-price-tag">
-                <span className="pkg-price-num">{pkg.priceEstimate}</span>
-                <span className="pkg-price-sub">/ sesi</span>
+              <div className="pkg-price-row">
+                <div className="pkg-price-tag">
+                  <span className="pkg-price-num">{pkg.priceEstimate}</span>
+                  {pkg.priceSub && (
+                    <span className="pkg-price-sub">{pkg.priceSub}</span>
+                  )}
+                </div>
+
+                {pkg.duration && (
+                  <div className="pkg-duration-pill">
+                    <Clock size={13} />
+                    <span>{pkg.duration}</span>
+                  </div>
+                )}
               </div>
 
               <p className="pkg-desc">{pkg.description}</p>
 
+              {/* Inclusions */}
               <div>
                 <h4 className="pkg-inclusions-title">Yang Termasuk Dalam Paket:</h4>
                 <ul className="pkg-inclusions-list">
@@ -101,6 +113,24 @@ export const PriceDetailModal: React.FC<PriceDetailModalProps> = ({ category, on
                   ))}
                 </ul>
               </div>
+
+              {/* Add-Ons / Pilihan Tambahan */}
+              {pkg.addOns && pkg.addOns.length > 0 && (
+                <div className="pkg-addons-box">
+                  <h4 className="pkg-addons-title">
+                    <Sparkles size={14} />
+                    <span>Pilihan Tambahan / Add-On:</span>
+                  </h4>
+                  <div className="pkg-addons-list">
+                    {pkg.addOns.map((addon, aIdx) => (
+                      <div key={aIdx} className="pkg-addon-item">
+                        <span className="pkg-addon-name">{addon.name}</span>
+                        <span className="pkg-addon-price">{addon.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <a
                 href={createWhatsAppUrl(pkg.whatsappMessage)}
@@ -114,8 +144,73 @@ export const PriceDetailModal: React.FC<PriceDetailModalProps> = ({ category, on
               </a>
             </div>
           ))}
+
+          {/* Additional Services (e.g. Wedding) */}
+          {category.additionalServices && category.additionalServices.length > 0 && (
+            <div className="additional-services-box">
+              <div className="add-svc-header">
+                <PlusCircle size={16} />
+                <span>Layanan Tambahan (Additional Services)</span>
+              </div>
+              <div className="add-svc-grid">
+                {category.additionalServices.map((svc, sIdx) => (
+                  <div key={sIdx} className="add-svc-item">
+                    <span className="add-svc-name">{svc.name}</span>
+                    <span className="add-svc-price">{svc.price}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Product Use (Product Brands Used) */}
+          {category.productUse && category.productUse.length > 0 && (
+            <div className="product-use-box">
+              <div className="product-use-header">
+                <Sparkles size={16} />
+                <span>Product Use / Pilihan Kosmetik Premium</span>
+              </div>
+              <p className="product-use-desc">
+                Azmi Amalia menggunakan perpaduan produk kosmetik luxury & internasional berstandar tinggi:
+              </p>
+              <div className="product-brand-tags">
+                {category.productUse.map((brand, bIdx) => (
+                  <span key={bIdx} className="product-brand-tag">
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Contact Info Footer inside Modal */}
+          <div className="modal-contact-footer">
+            <div className="contact-footer-item">
+              <span className="contact-label">Instagram:</span>
+              <a
+                href={PROFILE_INFO.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-value"
+              >
+                {PROFILE_INFO.instagramHandle}
+              </a>
+            </div>
+            <div className="contact-footer-item">
+              <span className="contact-label">WhatsApp:</span>
+              <a
+                href={`https://wa.me/${PROFILE_INFO.whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-value"
+              >
+                {PROFILE_INFO.phoneDisplay}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
+

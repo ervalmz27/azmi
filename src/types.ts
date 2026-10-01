@@ -1,11 +1,24 @@
+export interface PackageAddOn {
+  name: string;
+  price: string;
+}
+
+export interface AdditionalService {
+  name: string;
+  price: string;
+}
+
 export interface PricePackage {
   id: string;
   title: string;
   subtitle: string;
   badge?: string;
   priceEstimate: string;
+  priceSub?: string;
+  duration?: string;
   description: string;
   inclusions: string[];
+  addOns?: PackageAddOn[];
   recommendedFor?: string;
   whatsappMessage: string;
 }
@@ -22,6 +35,8 @@ export interface PriceCategory {
     title: string;
     points: string[];
   };
+  productUse?: string[];
+  additionalServices?: AdditionalService[];
 }
 
 export interface PortfolioLook {
