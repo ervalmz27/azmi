@@ -353,7 +353,7 @@ export const PRICE_CATEGORIES: PriceCategory[] = [
           { name: 'Hairdo', price: '+200k (by hair stylish)' },
           { name: 'Add softlens', price: '+50k' },
         ],
-        whatsappMessage: 'Halo Kak Azmi Amalia, saya ingin booking Paket REGULAR (500k) untuk [Graduation / Bridesmaid / Wedding Guest] di tanggal [isi tanggal]. Apakah slot masih available?',
+        whatsappMessage: 'Halo Kak Azmi Amalia, saya ingin booking Paket REGULAR (600k) untuk [Graduation / Bridesmaid / Wedding Guest] di tanggal [isi tanggal]. Apakah slot masih available?',
       },
       {
         id: 'pkg-special-occ',
@@ -378,7 +378,7 @@ export const PRICE_CATEGORIES: PriceCategory[] = [
           { name: 'Retouch & stand by MUA + hairdo', price: '600k' },
           { name: 'Add softlens', price: '+50k' },
         ],
-        whatsappMessage: 'Halo Kak Azmi Amalia, saya ingin booking Paket Special Occ (600k) untuk [Engagement / Prewed / Sister Bride / Mom Bride] di tanggal [isi tanggal]. Apakah slot masih available?',
+        whatsappMessage: 'Halo Kak Azmi Amalia, saya ingin booking Paket Special Occ (750k) untuk [Engagement / Prewed / Sister Bride / Mom Bride] di tanggal [isi tanggal]. Apakah slot masih available?',
       },
     ],
   },
